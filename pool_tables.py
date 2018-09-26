@@ -12,8 +12,6 @@ if __name__ == "__main__":
         pswd = getpass.getpass("Password (hint: it's 'admin'):")
         if pswd == 'admin':
             break
-    
-    Room.init(12)
 
     load_state = False
 
@@ -22,7 +20,10 @@ if __name__ == "__main__":
         if read:
             load_state = True
 
+    Room.init(12,load_state)
+
     if load_state:
+
         old_state = json.loads(open("state.json","r").read())
 
         with open('time-left.txt') as f:
@@ -43,11 +44,10 @@ if __name__ == "__main__":
                 seconds_elapsed -= seconds - cseconds
 
         for key in old_state:
-            Room.tables[int(key) - 1].occupy()
-            Room.tables[int(key) - 1].start -= round(old_state[key],2) - seconds_elapsed
-            
-
-
+            table = Room.tables[int(key) - 1]
+            table.occupy()
+            table.start -= round(old_state[key],2) - seconds_elapsed
+            table._loaded = True
 
     print("\n#### Room initialized. Try viewing the tables ####")
 

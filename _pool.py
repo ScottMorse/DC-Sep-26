@@ -12,12 +12,12 @@ class Room:
     initialized = False
 
     @classmethod
-    def init(self,num_tables):
+    def init(self,num_tables,load_state):
         for i in range(num_tables):
             Room.tables.append(Table(i + 1))
-        
-        with open("table_history.json","w") as j:
-            j.write("{\n\t")
+        if not load_state:
+            with open("table_history.json","w") as j:
+                j.write("{\n\t")
 
         Room.initialized = True
     
@@ -27,7 +27,11 @@ class Room:
             print("Room not initialized. ( Room.init() )")
             return
         for table in Room.tables:
-            print(table,f": Occupied ({convert_time(round(time.time()) - table.start)})" if table.occupied else ": Vacant")
+            if table._loaded:
+                elapsed = round(time.time(),2) + abs(table.start)
+            elif not table._loaded and table.occupied:
+                elapsed = round(time.time()) - table.start
+            print(table,f": Occupied ({convert_time(elapsed)})" if table.occupied else ": Vacant")
     
     @classmethod
     def close_room(self):
@@ -57,6 +61,7 @@ class Table:
     def __init__(self,num):
         self._occupied = False
         self._num = num
+        self._loaded = False
     
     @property
     def occupied(self):
