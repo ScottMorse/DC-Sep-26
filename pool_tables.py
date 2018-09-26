@@ -1,6 +1,6 @@
 import random
 import getpass
-from _pool import Room, Table, convert_time, closing
+from _pool import Room, Table, json, time, datetime, convert_time, closing
     
 if __name__ == "__main__":
 
@@ -14,6 +14,40 @@ if __name__ == "__main__":
             break
     
     Room.init(12)
+
+    load_state = False
+
+    with open('state.json') as f:
+        read = f.read()
+        if read:
+            load_state = True
+
+    if load_state:
+        old_state = json.loads(open("state.json","r").read())
+
+        with open('time-left.txt') as f:
+            timestr = f.read()[11:18]
+            chours, cminutes, cseconds = (datetime.datetime.now().hour,datetime.datetime.now().minute,datetime.datetime.now().second)
+            hours, minutes, seconds = timestr.split(":")
+            hours, minutes, seconds = (int(hours),int(minutes),int(seconds))
+            seconds_elapsed = 0
+            if chours > hours:
+                seconds_elapsed_while_gone = (chours - hours) * 3600
+            if cminutes > minutes:
+                seconds_elapsed += (cminutes - minutes) * 60
+            else:
+                seconds_elapsed -= (minutes - cminutes) * 60
+            if cseconds > seconds:
+                seconds_elapsed += cseconds - seconds
+            else:
+                seconds_elapsed -= seconds - cseconds
+
+        for key in old_state:
+            Room.tables[int(key) - 1].occupy()
+            Room.tables[int(key) - 1].start -= round(old_state[key],2) - seconds_elapsed
+            
+
+
 
     print("\n#### Room initialized. Try viewing the tables ####")
 
@@ -31,7 +65,16 @@ if __name__ == "__main__":
                 closing()
                 break
             else:
-
+                state = {}
+                for table in Room.tables:
+                    if table.occupied:
+                        table_state_time = round(time.time() - table.start)
+                        state[table.num] = table_state_time
+                with open('state.json','w') as j:
+                    json.dump(state,j)
+                with open('time-left.txt','w') as f:
+                    f.write(str(datetime.datetime.now()))
+                break
 
         if user_input == "view":
             for table in Room.tables:

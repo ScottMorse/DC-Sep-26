@@ -52,7 +52,6 @@ def convert_time(seconds):
         timed = f"{hours} hours, {minutes} minutes, {seconds} seconds"
     return timed
 
-
 class Table:
 
     def __init__(self,num):
