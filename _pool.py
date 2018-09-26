@@ -30,7 +30,7 @@ class Room:
             if table._loaded:
                 elapsed = round(time.time(),2) + abs(table.start)
             elif not table._loaded and table.occupied:
-                elapsed = round(time.time()) - table.start
+                elapsed = round(time.time(),2) - table.start
             print(table,f": Occupied ({convert_time(elapsed)})" if table.occupied else ": Vacant")
     
     @classmethod

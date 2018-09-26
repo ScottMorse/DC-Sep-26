@@ -33,7 +33,7 @@ if __name__ == "__main__":
             hours, minutes, seconds = (int(hours),int(minutes),int(seconds))
             seconds_elapsed = 0
             if chours > hours:
-                seconds_elapsed_while_gone = (chours - hours) * 3600
+                seconds_elapsed = (chours - hours) * 3600
             if cminutes > minutes:
                 seconds_elapsed += (cminutes - minutes) * 60
             else:
