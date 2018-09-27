@@ -29,10 +29,7 @@ def init():
             if table_key != "end":
                 table = _pool.Room.tables[int(table_key) - 1]
                 table.occupy()
-                table.start_time -= load[table_key] - (round(time.time() - last_time))
-
-
-
+                table.start_time -= load[table_key] - round(last_time - time.time())
 
 def timeout_input(timeout, prompt="", timeout_value=None):
     sys.stdout.write(prompt)

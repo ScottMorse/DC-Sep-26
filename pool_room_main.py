@@ -18,6 +18,8 @@ if check.lower().strip() == "y":
     if email.lower().strip() == "y":
         _pool_admin.send_mail()
 
+    open('state.json','w').close()
+
 else:
     state = {"end": time.time()}
     for table in _pool.Room.tables:
