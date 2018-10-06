@@ -80,3 +80,7 @@ class Table:
     
     def __repr__(self):
         return f"<Table {self.num}>"
+
+now = datetime.datetime.now().strftime("%H:%M:%S")
+
+print(isinstance(now,str))

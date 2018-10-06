@@ -1,0 +1,83 @@
+{
+  "Table 1:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 1,
+      "Start": "2018-09-28 14:30:57.805218",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "1 minutes, 26 seconds",
+      "Cost": "$0.72"
+    }
+  ],
+  "Table 2:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 2,
+      "Start": "2018-09-28 14:30:57.805240",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "1 minutes, 17 seconds",
+      "Cost": "$0.64"
+    }
+  ],
+  "Table 3:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 3,
+      "Start": "2018-09-28 14:30:57.805247",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "1 minutes, 9 seconds",
+      "Cost": "$0.57"
+    }
+  ],
+  "Table 4:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 4,
+      "Start": "2018-09-28 14:30:57.805253",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "1 minutes, 16 seconds",
+      "Cost": "$0.63"
+    }
+  ],
+  "Table 5:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 5,
+      "Start": "2018-09-28 14:30:57.805260",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "55 sec",
+      "Cost": "$0.46"
+    }
+  ],
+  "Table 6:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 6,
+      "Start": "2018-09-28 14:30:57.805266",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "1 minutes, 5 seconds",
+      "Cost": "$0.54"
+    }
+  ],
+  "Table 7:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 7,
+      "Start": "2018-09-28 14:30:57.805272",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "1 minutes, 16 seconds",
+      "Cost": "$0.63"
+    }
+  ],
+  "Table 10:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 10,
+      "Start": "2018-09-28 14:30:57.805278",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "50 sec",
+      "Cost": "$0.42"
+    }
+  ],
+  "Table 12:Fri Sep 28 14:31:11 2018": [
+    {
+      "Table": 12,
+      "Start": "2018-09-28 14:30:57.805284",
+      "End": "Fri Sep 28 14:31:11 2018",
+      "Time": "1 minutes, 24 seconds",
+      "Cost": "$0.70"
+    }
+  ]
+}
